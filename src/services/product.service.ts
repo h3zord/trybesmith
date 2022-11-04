@@ -1,4 +1,4 @@
-import { IProducts, IProductsId } from '../interfaces/IProducts';
+import { IProducts, IProductsId, IProductsOrderId } from '../interfaces/IProducts';
 import ProductModel from '../models/product.model';
 
 export default class ProductService {
@@ -6,5 +6,9 @@ export default class ProductService {
 
   async create(payload: IProducts): Promise<IProductsId> {
     return this.productModel.create(payload);
+  }
+
+  async getAll(): Promise<IProductsOrderId[]> {
+    return this.productModel.getAll();
   }
 }
