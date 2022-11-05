@@ -1,7 +1,7 @@
 import Joi from 'joi';
+import HttpException from '../utils/http.exception';
 import { ILogin } from '../interfaces/ILogin';
 import { IUserId } from '../interfaces/IUser';
-import HttpException from '../utils/http.exception';
 
 export function validatePayloadLogin(payload: ILogin) {
   const schema = Joi.object({
