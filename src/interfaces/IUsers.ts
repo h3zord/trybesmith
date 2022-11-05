@@ -1,10 +1,10 @@
-export interface IUser {
+export interface IUsers {
   username: string;
   classe: string;
   level: number;
   password: string;
 }
 
-export interface IUserId extends IUser {
+export interface IUsersId extends IUsers {
   id: number;
 }

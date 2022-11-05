@@ -1,11 +1,11 @@
 import { ResultSetHeader } from 'mysql2';
-import { IUser, IUserId } from '../interfaces/IUser';
+import { IUsers, IUsersId } from '../interfaces/IUsers';
 import connection from './connection';
 
 export default class UserModel {
   connection = connection;
 
-  async create(payload: IUser): Promise<IUserId> {
+  async create(payload: IUsers): Promise<IUsersId> {
     const { username, classe, level, password } = payload;
 
     const [{ insertId }] = await this.connection.execute<ResultSetHeader>(

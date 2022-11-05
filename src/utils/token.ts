@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import { IUser } from '../interfaces/IUser';
+import { IUsers } from '../interfaces/IUsers';
 
-export default function createToken(data: IUser) {
+export default function createToken(data: IUsers) {
   const token = jwt.sign({ data }, process.env.JWT_SECRET as string, {
     expiresIn: '1d',
     algorithm: 'HS256', 

@@ -5,10 +5,12 @@ export default class ProductService {
   productModel = new ProductModel();
 
   async create(payload: IProducts): Promise<IProductsId> {
-    return this.productModel.create(payload);
+    const result = await this.productModel.create(payload);
+    return result;
   }
 
   async getAll(): Promise<IProductsOrderId[]> {
-    return this.productModel.getAll();
+    const result = await this.productModel.getAll();
+    return result;
   }
 }
