@@ -11,7 +11,9 @@ export default class UserController {
     const result = await this.userService.create(payload);
     
     if (result) {
-      const token = createToken(payload);
+      const { id, username } = result;
+      const token = createToken({ id, username });
+      
       res.status(201).json({ token });
     }
   }
