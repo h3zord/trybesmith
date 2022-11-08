@@ -1,5 +1,12 @@
 export interface IOrder {
-  id: number;
   userId: number;
   productsIds: number[];
+}
+
+export interface IOrderWithId extends IOrder {
+  id: number;
+}
+
+export interface IOrderOnlyPrdsIds {
+  productsIds: number[]
 }

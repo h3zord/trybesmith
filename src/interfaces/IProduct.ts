@@ -3,10 +3,10 @@ export interface IProduct {
   amount: string;
 }
 
-export interface IProductId extends IProduct {
+export interface IProductWithId extends IProduct {
   id: number;
 }
 
-export interface IProductOrderId extends IProductId {
+export interface IProductWithOrderId extends IProductWithId {
   orderId: number;
 }

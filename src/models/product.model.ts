@@ -1,11 +1,11 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
-import { IProduct, IProductId, IProductOrderId } from '../interfaces/IProduct';
+import { IProduct, IProductWithId, IProductWithOrderId } from '../interfaces/IProduct';
 import connection from './connection';
 
 export default class ProductModel {
   connection = connection;
 
-  async create(payload: IProduct): Promise<IProductId> {
+  async create(payload: IProduct): Promise<IProductWithId> {
     const { name, amount } = payload;
 
     const [{ insertId }] = await this.connection.execute<ResultSetHeader>(
@@ -16,11 +16,18 @@ export default class ProductModel {
     return { id: insertId, ...payload };
   }
 
-  async getAll(): Promise<IProductOrderId[]> {
-    const [result] = await this.connection.execute<IProductOrderId[] & RowDataPacket[]>(
+  async getAll(): Promise<IProductWithOrderId[]> {
+    const [result] = await this.connection.execute<IProductWithOrderId[] & RowDataPacket[]>(
       'SELECT * FROM Trybesmith.Products',
     );
 
     return result;
+  }
+
+  async updateById(id: number, userId: number): Promise<void> {
+    await this.connection.execute<ResultSetHeader>(
+      'UPDATE Trybesmith.Products SET orderId = ? WHERE id = ?',
+      [userId, id],
+    );
   }
 }

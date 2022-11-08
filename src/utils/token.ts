@@ -1,7 +1,8 @@
 import jwt from 'jsonwebtoken';
-import { IToken } from '../interfaces/IToken';
+import { ITokenData, IToken } from '../interfaces/IToken';
+import HttpException from './http.exception';
 
-export default function createToken(data: IToken) {
+export default function createToken(data: IToken): string {
   const token = jwt.sign({ data }, process.env.JWT_SECRET as string, {
     expiresIn: '1d',
     algorithm: 'HS256', 
@@ -10,21 +11,16 @@ export default function createToken(data: IToken) {
   return token;
 }
 
-// export const validateToken = (token: string) => {
-//   if (!token) {
-//     const e = new Error('Token obrigatório!');
-//     e.message = 'Token not found';
-//     e.status = 401;
-//     throw e;
-//   }
+export const validateToken = (token: string | undefined) => {  
+  if (!token) {
+    throw new HttpException(401, 'Token not found');
+  }
 
-//   try {
-//     const { data } = jwt.verify(token, process.env.JWT_SECRET as string);
-//     return data;
-//   } catch (error) {
-//     const e = new Error('Token inválido');
-//     e.message = 'Expired or invalid token';
-//     e.status = 401;
-//     throw e;
-//   }
-// };
+  try {
+    const { data } = jwt.verify(token, process.env.JWT_SECRET as string) as ITokenData;
+    
+    return data;
+  } catch (error) {
+    throw new HttpException(401, 'Invalid token');
+  }
+};

@@ -5,6 +5,6 @@ export interface IUser {
   password: string;
 }
 
-export interface IUserId extends IUser {
-  id: number;
+export interface IUserWithId extends IUser {
+  id: number
 }
