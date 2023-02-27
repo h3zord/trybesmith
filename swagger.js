@@ -3,8 +3,8 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     version: '1.0.0',
-    title: 'Trybe Futebol Clube API',
-    description: 'Esta documentação é destinada ao projeto Trybe Futebol Clube.',
+    title: 'TrybeSmith API',
+    description: 'Esta documentação é destinada ao projeto TrybeSmith.',
   },
   host: 'localhost:3000',
   basePath: '/',
