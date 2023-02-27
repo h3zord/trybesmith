@@ -17,8 +17,8 @@ export default function validatePayloadUser(payload: IUser) {
 
     const { message } = error;
 
-    if (message.includes(isRequired)) throw new HttpException(400, message);
+    if (message.includes(isRequired)) throw new HttpException(400, 'All fields must be filled');
 
-    throw new HttpException(422, message);
+    throw new HttpException(422, 'Check that the information is filled in correctly');
   }
 }

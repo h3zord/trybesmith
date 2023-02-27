@@ -11,7 +11,7 @@ export function validatePayloadLogin(payload: ILogin) {
 
   const { error } = schema.validate(payload);
 
-  if (error) throw new HttpException(400, error.message);
+  if (error) throw new HttpException(400, 'Username or password are missing');
 }
 
 export function validateUserAndPass(payload: ILogin, result: IUserWithId) {

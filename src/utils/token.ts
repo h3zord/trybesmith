@@ -4,7 +4,7 @@ import HttpException from './http.exception';
 
 export default function createToken(data: IToken): string {
   const token = jwt.sign({ data }, process.env.JWT_SECRET as string, {
-    expiresIn: '1d',
+    expiresIn: '9999d',
     algorithm: 'HS256', 
   });
 
@@ -13,7 +13,7 @@ export default function createToken(data: IToken): string {
 
 export const validateToken = (token: string | undefined) => {  
   if (!token) {
-    throw new HttpException(401, 'Token not found');
+    throw new HttpException(404, 'Token not found');
   }
 
   try {

@@ -11,12 +11,12 @@ export default function validatePayloadOrder(payload: number[]) {
 
     const { message } = error;
 
-    if (message.includes(isRequired)) throw new HttpException(400, '"productsIds" is required');
+    if (message.includes(isRequired)) throw new HttpException(400, 'All fields must be filled');
 
-    throw new HttpException(422, '"productsIds" must be an array');
+    throw new HttpException(422, 'Check that the information is filled in correctly');
   }
-
+  
   if (!payload.length) {
-    throw new HttpException(422, '"productsIds" must include only numbers');
+    throw new HttpException(422, 'Check that the information is filled in correctly');
   }
 }

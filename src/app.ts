@@ -1,5 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
+import * as swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger-output.json';
 import productRoutes from './routes/product.routes';
 import userRoutes from './routes/user.routes';
 import ordersRoutes from './routes/order.routes';
@@ -10,13 +12,15 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/products', productRoutes);
+app.use(loginRoutes);
 
-app.use('/users', userRoutes);
+app.use(userRoutes);
 
-app.use('/orders', ordersRoutes);
+app.use(productRoutes);
 
-app.use('/login', loginRoutes);
+app.use(ordersRoutes);
+
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(errorMiddleware);
 
