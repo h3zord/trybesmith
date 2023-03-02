@@ -49,7 +49,7 @@ var OrderModel = /** @class */ (function () {
             var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.connection.execute("SELECT orders.id, orders.userId, JSON_ARRAYAGG(products.id) AS productsIds \n      FROM Trybesmith.Orders AS orders\n      INNER JOIN Trybesmith.Products AS products\n      ON orders.id = products.orderId\n      GROUP BY orders.id")];
+                    case 0: return [4 /*yield*/, this.connection.execute("SELECT orders.id, orders.userId, JSON_ARRAYAGG(products.id) AS productsIds \n      FROM Orders AS orders\n      INNER JOIN Products AS products\n      ON orders.id = products.orderId\n      GROUP BY orders.id")];
                     case 1:
                         result = (_a.sent())[0];
                         return [2 /*return*/, result];
@@ -62,7 +62,7 @@ var OrderModel = /** @class */ (function () {
             var insertId;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.connection.execute('INSERT INTO Trybesmith.Orders (userId) VALUES (?)', [payload])];
+                    case 0: return [4 /*yield*/, this.connection.execute('INSERT INTO Orders (userId) VALUES (?)', [payload])];
                     case 1:
                         insertId = (_a.sent())[0].insertId;
                         return [2 /*return*/, insertId];

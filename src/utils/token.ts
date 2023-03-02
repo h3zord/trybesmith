@@ -3,7 +3,7 @@ import { ITokenData, IToken } from '../interfaces/IToken';
 import HttpException from './http.exception';
 
 export default function createToken(data: IToken): string {
-  const token = jwt.sign({ data }, process.env.JWT_SECRET as string, {
+  const token = jwt.sign({ data }, process.env.JWT_SECRET || 'secret' as string, {
     expiresIn: '9999d',
     algorithm: 'HS256', 
   });
@@ -17,7 +17,7 @@ export const validateToken = (token: string | undefined) => {
   }
 
   try {
-    const { data } = jwt.verify(token, process.env.JWT_SECRET as string) as ITokenData;
+    const { data } = jwt.verify(token, process.env.JWT_SECRET || 'secret' as string) as ITokenData;
     
     return data;
   } catch (error) {

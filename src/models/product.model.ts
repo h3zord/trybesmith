@@ -9,7 +9,7 @@ export default class ProductModel {
     const { name, amount } = payload;
 
     const [{ insertId }] = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)',
+      'INSERT INTO Products (name, amount) VALUES (?, ?)',
       [name, amount],
     );
 
@@ -18,7 +18,7 @@ export default class ProductModel {
 
   async getAll(): Promise<IProductWithOrderId[]> {
     const [result] = await this.connection.execute<IProductWithOrderId[] & RowDataPacket[]>(
-      'SELECT * FROM Trybesmith.Products',
+      'SELECT * FROM Products',
     );
 
     return result;
@@ -26,7 +26,7 @@ export default class ProductModel {
 
   async updateById(id: number, userId: number): Promise<void> {
     await this.connection.execute<ResultSetHeader>(
-      'UPDATE Trybesmith.Products SET orderId = ? WHERE id = ?',
+      'UPDATE Products SET orderId = ? WHERE id = ?',
       [userId, id],
     );
   }

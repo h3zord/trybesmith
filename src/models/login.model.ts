@@ -9,7 +9,7 @@ export default class LoginModel {
   async findByUsername(payload: ILogin): Promise<IUserWithId> {
     const { username } = payload;
     const [[result]] = await this.connection.execute<IUserWithId[] & RowDataPacket[]>(
-      'SELECT * FROM Trybesmith.Users WHERE username = ?',
+      'SELECT * FROM Users WHERE username = ?',
       [username],
     );
 

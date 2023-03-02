@@ -7,7 +7,7 @@ exports.validateToken = void 0;
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var http_exception_1 = __importDefault(require("./http.exception"));
 function createToken(data) {
-    var token = jsonwebtoken_1.default.sign({ data: data }, process.env.JWT_SECRET, {
+    var token = jsonwebtoken_1.default.sign({ data: data }, process.env.JWT_SECRET || 'secret', {
         expiresIn: '9999d',
         algorithm: 'HS256',
     });
@@ -19,7 +19,7 @@ var validateToken = function (token) {
         throw new http_exception_1.default(404, 'Token not found');
     }
     try {
-        var data = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET).data;
+        var data = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET || 'secret').data;
         return data;
     }
     catch (error) {

@@ -62,7 +62,7 @@ var UserModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         username = payload.username, classe = payload.classe, level = payload.level, password = payload.password;
-                        return [4 /*yield*/, this.connection.execute('INSERT INTO Trybesmith.Users (username, classe, level, password) VALUES (?, ?, ?, ?)', [username, classe, level, password])];
+                        return [4 /*yield*/, this.connection.execute('INSERT INTO Users (username, classe, level, password) VALUES (?, ?, ?, ?)', [username, classe, level, password])];
                     case 1:
                         insertId = (_a.sent())[0].insertId;
                         return [2 /*return*/, __assign({ id: insertId }, payload)];

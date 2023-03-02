@@ -51,7 +51,7 @@ var LoginModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         username = payload.username;
-                        return [4 /*yield*/, this.connection.execute('SELECT * FROM Trybesmith.Users WHERE username = ?', [username])];
+                        return [4 /*yield*/, this.connection.execute('SELECT * FROM Users WHERE username = ?', [username])];
                     case 1:
                         result = (_a.sent())[0][0];
                         return [2 /*return*/, result];

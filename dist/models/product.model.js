@@ -62,7 +62,7 @@ var ProductModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         name = payload.name, amount = payload.amount;
-                        return [4 /*yield*/, this.connection.execute('INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)', [name, amount])];
+                        return [4 /*yield*/, this.connection.execute('INSERT INTO Products (name, amount) VALUES (?, ?)', [name, amount])];
                     case 1:
                         insertId = (_a.sent())[0].insertId;
                         return [2 /*return*/, __assign({ id: insertId }, payload)];
@@ -75,7 +75,7 @@ var ProductModel = /** @class */ (function () {
             var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.connection.execute('SELECT * FROM Trybesmith.Products')];
+                    case 0: return [4 /*yield*/, this.connection.execute('SELECT * FROM Products')];
                     case 1:
                         result = (_a.sent())[0];
                         return [2 /*return*/, result];
@@ -87,7 +87,7 @@ var ProductModel = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.connection.execute('UPDATE Trybesmith.Products SET orderId = ? WHERE id = ?', [userId, id])];
+                    case 0: return [4 /*yield*/, this.connection.execute('UPDATE Products SET orderId = ? WHERE id = ?', [userId, id])];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];

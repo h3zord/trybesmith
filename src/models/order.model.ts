@@ -8,8 +8,8 @@ export default class OrderModel {
   async getAll(): Promise<IOrderWithId[]> {
     const [result] = await this.connection.execute<IOrderWithId[] & RowDataPacket[]>(
       `SELECT orders.id, orders.userId, JSON_ARRAYAGG(products.id) AS productsIds 
-      FROM Trybesmith.Orders AS orders
-      INNER JOIN Trybesmith.Products AS products
+      FROM Orders AS orders
+      INNER JOIN Products AS products
       ON orders.id = products.orderId
       GROUP BY orders.id`,
     );
@@ -19,7 +19,7 @@ export default class OrderModel {
 
   async create(payload: number): Promise<number> {
     const [{ insertId }] = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Orders (userId) VALUES (?)',
+      'INSERT INTO Orders (userId) VALUES (?)',
       [payload],
     );
 

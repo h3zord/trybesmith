@@ -9,7 +9,7 @@ export default class UserModel {
     const { username, classe, level, password } = payload;
 
     const [{ insertId }] = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Users (username, classe, level, password) VALUES (?, ?, ?, ?)',
+      'INSERT INTO Users (username, classe, level, password) VALUES (?, ?, ?, ?)',
       [username, classe, level, password],
     );
 

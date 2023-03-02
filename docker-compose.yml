@@ -4,7 +4,7 @@ services:
   # Serviço que irá rodar o node
   node:
     # Imagem base do container
-    image: node:16
+    image: node:alpine
     # Nome do container para facilitar execução
     container_name: trybesmith
     # Mesmo que `docker run -t`
@@ -12,7 +12,7 @@ services:
     # Mesmo que `docker run -i`
     stdin_open: true
     # Substitui o comando padrão da imagem do node
-    command: bash
+    command: sh -c "npm install; npm start"
     # Restarta a imagem caso algo a faça parar
     restart: always
     # Diretório padrão de execução
@@ -33,9 +33,12 @@ services:
       - 3000:3000
     # Configura as variáveis de ambiente dentro do container
     environment:
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
-      MYSQL_HOST: db
+      PORT: 3000
+      MYSQLPORT: 3306
+      MYSQLUSER: root
+      MYSQLPASSWORD: password
+      MYSQLHOST: db
+      MYSQLDATABASE: railway
       JWT_SECRET: secret
 
   # Serviço que irá rodar o banco de dados
@@ -48,9 +51,11 @@ services:
     ports:
       # Expõe a porta padrão do banco de dados
       - 3306:3306
-      - 33060:33060
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: railway
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
 
 # Lista de redes que os containeres irão utilizar
 networks:
