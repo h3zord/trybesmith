@@ -6,7 +6,7 @@ const doc = {
     title: 'TrybeSmith API',
     description: 'Esta documentação é destinada ao projeto TrybeSmith.',
   },
-  host: 'localhost:3000',
+  host: 'trybesmith.up.railway.app',
   basePath: '/',
   schemes: ['http'],
   consumes: ['application/json'],
