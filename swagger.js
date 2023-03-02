@@ -8,7 +8,7 @@ const doc = {
   },
   host: 'trybesmith.up.railway.app',
   basePath: '/',
-  schemes: ['http'],
+  schemes: ['https', 'http'],
   consumes: ['application/json'],
   produces: ['application/json'],
   tags: [

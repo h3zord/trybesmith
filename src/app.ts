@@ -12,6 +12,8 @@ const app = express();
 
 app.use(express.json());
 
+app.get('/', (_req, res) => res.json({ ok: true }));
+
 app.use(loginRoutes);
 
 app.use(userRoutes);
