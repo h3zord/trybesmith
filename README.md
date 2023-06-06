@@ -13,9 +13,9 @@
 
 ## O que foi desenvolvido?
 
-<strong>TrybeSmith</strong> é uma API de comércio de itens medievais que permite o cadastro e listagem de produtos e pedidos, bem como o cadastro de usuários e a realização de login. Para sua execução, foi utilizado o Docker para criar dois containers, um para o Node.js que roda o JavaScript no back-end e outro para o ambiente do banco de dados MySQL.
+<strong>TrybeSmith</strong> é uma API de comércio de itens medievais que permite o cadastro e listagem de produtos e pedidos, bem como o cadastro de usuários e a realização de login. Para sua execução, foi utilizado o docker para criar dois containers, um para o node.js que roda o javascript no back-end e outro para o ambiente do banco de dados mySQL.
 
-A linguagem escolhida para o desenvolvimento da aplicação foi o TypeScript, e o Express.js cuidou da gestão das rotas, tratamento das requisições HTTP e definição dos middlewares. Além disso, a biblioteca JWT foi utilizada para a autenticação do token durante as requisições e o Joi para as validações dos dados fornecidos via body. A estrutura da API segue o modelo MSC (Model, Service e Controller).
+A linguagem escolhida para o desenvolvimento da aplicação foi o typescript, e o express.js cuidou da gestão das rotas, tratamento das requisições HTTP e definição dos middlewares. Além disso, a biblioteca JWT foi utilizada para a autenticação do token durante as requisições e o joi para as validações dos dados fornecidos via body. A estrutura da API segue o modelo MSC (Model, Service e Controller).
 
 ## Linguagens e ferramentas:
 - Docker
@@ -25,7 +25,7 @@ A linguagem escolhida para o desenvolvimento da aplicação foi o TypeScript, e 
 - JWT
 - MySQL
 
-## Instalação e execução com Docker:
+## Instalação e execução com docker
 
 ### 1 - Clone o repositório:
 ```
