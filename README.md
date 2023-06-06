@@ -17,7 +17,7 @@
 
 A linguagem escolhida para o desenvolvimento da aplicação foi o typescript, e o express.js cuidou da gestão das rotas, tratamento das requisições HTTP e definição dos middlewares. Além disso, a biblioteca JWT foi utilizada para a autenticação do token durante as requisições e o joi para as validações dos dados fornecidos via body. A estrutura da API segue o modelo MSC (Model, Service e Controller).
 
-## Linguagens e ferramentas:
+## Linguagens e ferramentas
 - Docker
 - Node.js
 - Typescript
