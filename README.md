@@ -1,10 +1,5 @@
 <h1 align="center">Boas-vindas ao repositório do TrybeSmith!</h1>
 
-<h2 align="center">
-  <a href="https://trybesmith.up.railway.app/doc" target="_blank">
-    Swagger
-  </a>
-</h2>
 <br/>
 
 ## Objetivo
